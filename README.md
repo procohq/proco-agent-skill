@@ -1,8 +1,6 @@
 # proco-agent-skill
 
-**Drop-in financial tools for LangChain, AutoGen, LlamaIndex, and CrewAI.**
-
-A single import gives any agent framework full Proco capability: non-custodial wallets, on-chain payments, programmable conditions, and treasury automation.
+**Drop-in on-chain capital markets tools for LangChain, AutoGen, LlamaIndex, and CrewAI.** A single import gives any framework full Proco capability: non-custodial capital accounts, programmable USDC settlement, treasury controls, and on-chain payment execution.
 
 → [procohq.com](https://procohq.com)
 
@@ -14,14 +12,14 @@ A single import gives any agent framework full Proco capability: non-custodial w
 
 ---
 
-## What it gives an agent framework
+## What it provides
 
 One package, four framework integrations, identical capabilities everywhere:
 
 - **LangChain** — Tools registered via `StructuredTool`
 - **CrewAI** — Tasks register Proco actions as available tools
 - **AutoGen** — Function map exposed via `register_function`
-- **LlamaIndex** — `FunctionTool` set ready for any agent
+- **LlamaIndex** — `FunctionTool` set ready for any system
 
 Underneath: the same calls hit the Proco SDK, so behaviour is identical across frameworks.
 
@@ -54,7 +52,7 @@ Get an API key at [procohq.com/sign-in](https://procohq.com/sign-in) — free sa
 
 - [Proco SDK](https://github.com/procohq/proco-sdk) — TypeScript client this skill wraps
 - [Proco MCP server](https://github.com/procohq/proco-mcp) — same tools as a Model Context Protocol server
-- [Examples](https://github.com/procohq/examples) — runnable agent integrations
+- [Examples](https://github.com/procohq/examples) — runnable integrations
 - [Docs](https://procohq.com/docs)
 
 ---
