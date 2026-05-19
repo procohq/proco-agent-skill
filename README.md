@@ -8,7 +8,7 @@
 
 ## Status
 
-`Pre-release.` Scaffolding only. Tracked alongside the [Proco SDK](https://github.com/procohq/proco-sdk) and [Proco MCP server](https://github.com/procohq/proco-mcp).
+`Pre-release.` API stable. Production rollout tracked alongside the [Proco SDK](https://github.com/procohq/proco-sdk) and [Proco MCP server](https://github.com/procohq/proco-mcp).
 
 ---
 
@@ -17,46 +17,46 @@
 One package, four framework integrations, identical capabilities everywhere:
 
 - **LangChain** — Tools registered via `StructuredTool`
-- **CrewAI** — Tasks register Proco actions as available tools
-- **AutoGen** — Function map exposed via `register_function`
-- **LlamaIndex** — `FunctionTool` set ready for any system
+- - **CrewAI** — Tasks register Proco actions as available tools
+  - - **AutoGen** — Function map exposed via `register_function`
+    - - **LlamaIndex** — `FunctionTool` set ready for any system
+     
+      - Underneath: the same calls hit the Proco SDK, so behaviour is identical across frameworks.
+     
+      - ---
 
-Underneath: the same calls hit the Proco SDK, so behaviour is identical across frameworks.
+      ## Quickstart (LangChain example)
 
----
+      ```bash
+      pip install proco-agent-skill
+      ```
 
-## Quickstart (LangChain example)
+      ```python
+      from langchain.agents import initialize_agent
+      from proco_agent_skill.langchain import proco_tools
 
-```bash
-pip install proco-agent-skill
-```
+      agent = initialize_agent(
+          tools=proco_tools(api_key="sk_..."),
+          llm=llm,
+          verbose=True,
+      )
 
-```python
-from langchain.agents import initialize_agent
-from proco_agent_skill.langchain import proco_tools
+      agent.run("Sweep end-of-day Hyperliquid margin to the Base treasury and log the settlement.")
+      ```
 
-agent = initialize_agent(
-    tools=proco_tools(api_key="sk_..."),
-    llm=llm,
-    verbose=True,
-)
+      Get an API key at [procohq.com/sign-in](https://procohq.com/sign-in) — free sandbox, no credit card.
 
-agent.run("Pay invoice INV-204 from the operations wallet when the next vendor payout completes.")
-```
+      ---
 
-Get an API key at [procohq.com/sign-in](https://procohq.com/sign-in) — free sandbox, no credit card.
+      ## Links
 
----
+      - [Proco SDK](https://github.com/procohq/proco-sdk) — TypeScript client this skill wraps
+      - - [Proco MCP server](https://github.com/procohq/proco-mcp) — same tools as a Model Context Protocol server
+        - - [Examples](https://github.com/procohq/examples) — runnable integrations
+          - - [Docs](https://procohq.com/docs)
+           
+            - ---
 
-## Links
+            ## License
 
-- [Proco SDK](https://github.com/procohq/proco-sdk) — TypeScript client this skill wraps
-- [Proco MCP server](https://github.com/procohq/proco-mcp) — same tools as a Model Context Protocol server
-- [Examples](https://github.com/procohq/examples) — runnable integrations
-- [Docs](https://procohq.com/docs)
-
----
-
-## License
-
-MIT
+            MIT
